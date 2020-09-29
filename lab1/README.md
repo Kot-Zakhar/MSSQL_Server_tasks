@@ -11,9 +11,3 @@
 1. Show the list of departments of 'Research and Development' group, in asc order.
 2. Show minimal amount of Sick-Leave hours of employees (naming it '*MinSickLeaveHours*').
 3. Show the list of 10 unique jobs in asc order. Add a column with the first word of the '*JobTitle*' field.
-
-<object data="./V5_Report.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="./V5_Report.pdf">
-        <p>This browser does not support PDFs.</p>
-    </embed>
-</object>
