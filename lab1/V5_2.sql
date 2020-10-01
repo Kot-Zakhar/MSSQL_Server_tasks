@@ -1,4 +1,4 @@
-restore database AdventureWorks2012
+п»їrestore database AdventureWorks2012
 from disk = 'D:\Documents\university\DB\AdventureWorks2012.bak'
 with move 'AdventureWorks2012' to 'C:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\AdventureWorks2012.mdf',
 move 'AdventureWorks2012_log' to 'C:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\AdventureWorks2012_log.ldf';
@@ -8,8 +8,8 @@ use AdventureWorks2012;
 go
 
 /*
-	Вывести на экран список отделов, принадлежащих группе ‘Research and Development’,
-	отсортированных по названию отдела в порядке A-Z.
+	Р’С‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ СЃРїРёСЃРѕРє РѕС‚РґРµР»РѕРІ, РїСЂРёРЅР°РґР»РµР¶Р°С‰РёС… РіСЂСѓРїРїРµ вЂResearch and DevelopmentвЂ™,
+	РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹С… РїРѕ РЅР°Р·РІР°РЅРёСЋ РѕС‚РґРµР»Р° РІ РїРѕСЂСЏРґРєРµ A-Z.
 */
 select Name, GroupName
 from HumanResources.Department 
@@ -19,17 +19,17 @@ go
 
 
 /*
-	Вывести на экран минимальное количество оставшихся больничных часов у сотрудников.
-	Назовите столбец с результатом ‘MinSickLeaveHours’.
+	Р’С‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ РјРёРЅРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕСЃС‚Р°РІС€РёС…СЃСЏ Р±РѕР»СЊРЅРёС‡РЅС‹С… С‡Р°СЃРѕРІ Сѓ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ.
+	РќР°Р·РѕРІРёС‚Рµ СЃС‚РѕР»Р±РµС† СЃ СЂРµР·СѓР»СЊС‚Р°С‚РѕРј вЂMinSickLeaveHoursвЂ™.
 */
 select min(SickLeaveHours) as MinSickLeaveHours
 from HumanResources.Employee;
 go
 
 /*
-	Вывести на экран список неповторяющихся должностей в порядке A-Z.
-	Вывести только первые 10 названий.
-	Добавить столбец, в котором вывести первое слово из поля [JobTitle].
+	Р’С‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ СЃРїРёСЃРѕРє РЅРµРїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ РґРѕР»Р¶РЅРѕСЃС‚РµР№ РІ РїРѕСЂСЏРґРєРµ A-Z.
+	Р’С‹РІРµСЃС‚Рё С‚РѕР»СЊРєРѕ РїРµСЂРІС‹Рµ 10 РЅР°Р·РІР°РЅРёР№.
+	Р”РѕР±Р°РІРёС‚СЊ СЃС‚РѕР»Р±РµС†, РІ РєРѕС‚РѕСЂРѕРј РІС‹РІРµСЃС‚Рё РїРµСЂРІРѕРµ СЃР»РѕРІРѕ РёР· РїРѕР»СЏ [JobTitle].
 */
 select distinct top 10
 	JobTitle,

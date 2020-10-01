@@ -1,11 +1,11 @@
-use AdventureWorks2012;
+п»їuse AdventureWorks2012;
 go
 
 /*
-	a) создайте таблицу dbo.Employee с такой же структурой как HumanResources.Employee,
-	кроме полей OrganizationLevel, SalariedFlag, CurrentFlag,
-	а также кроме полей с типом hierarchyid, uniqueidentifier,
-	не включая индексы, ограничения и триггеры;
+	a) СЃРѕР·РґР°Р№С‚Рµ С‚Р°Р±Р»РёС†Сѓ dbo.Employee СЃ С‚Р°РєРѕР№ Р¶Рµ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ РєР°Рє HumanResources.Employee,
+	РєСЂРѕРјРµ РїРѕР»РµР№ OrganizationLevel, SalariedFlag, CurrentFlag,
+	Р° С‚Р°РєР¶Рµ РєСЂРѕРјРµ РїРѕР»РµР№ СЃ С‚РёРїРѕРј hierarchyid, uniqueidentifier,
+	РЅРµ РІРєР»СЋС‡Р°СЏ РёРЅРґРµРєСЃС‹, РѕРіСЂР°РЅРёС‡РµРЅРёСЏ Рё С‚СЂРёРіРіРµСЂС‹;
 */
 create table dbo.Employee(
 	BusinessEntityID int NOT NULL,
@@ -23,8 +23,8 @@ create table dbo.Employee(
 go
 
 /*
-	b) используя инструкцию ALTER TABLE,
-	создайте для таблицы dbo.Employee ограничение UNIQUE для поля NationalIDNumber;
+	b) РёСЃРїРѕР»СЊР·СѓСЏ РёРЅСЃС‚СЂСѓРєС†РёСЋ ALTER TABLE,
+	СЃРѕР·РґР°Р№С‚Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹ dbo.Employee РѕРіСЂР°РЅРёС‡РµРЅРёРµ UNIQUE РґР»СЏ РїРѕР»СЏ NationalIDNumber;
 */
 alter table dbo.Employee
 	add constraint UC_Employee_NationalIDNumber
@@ -32,9 +32,9 @@ alter table dbo.Employee
 go
 
 /*
-	c) используя инструкцию ALTER TABLE,
-	создайте для таблицы dbo.Employee ограничение для поля VacationHours,
-	запрещающее заполнение этого поля значениями меньшими или равными 0;
+	c) РёСЃРїРѕР»СЊР·СѓСЏ РёРЅСЃС‚СЂСѓРєС†РёСЋ ALTER TABLE,
+	СЃРѕР·РґР°Р№С‚Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹ dbo.Employee РѕРіСЂР°РЅРёС‡РµРЅРёРµ РґР»СЏ РїРѕР»СЏ VacationHours,
+	Р·Р°РїСЂРµС‰Р°СЋС‰РµРµ Р·Р°РїРѕР»РЅРµРЅРёРµ СЌС‚РѕРіРѕ РїРѕР»СЏ Р·РЅР°С‡РµРЅРёСЏРјРё РјРµРЅСЊС€РёРјРё РёР»Рё СЂР°РІРЅС‹РјРё 0;
 */
 alter table dbo.Employee
 	add constraint CHECK_Employee_VacationHours
@@ -42,9 +42,9 @@ alter table dbo.Employee
 go
 
 /*
-	d) используя инструкцию ALTER TABLE,
-	создайте для таблицы dbo.Employee ограничение DEFAULT для поля VacationHours,
-	задайте значение по умолчанию 144;
+	d) РёСЃРїРѕР»СЊР·СѓСЏ РёРЅСЃС‚СЂСѓРєС†РёСЋ ALTER TABLE,
+	СЃРѕР·РґР°Р№С‚Рµ РґР»СЏ С‚Р°Р±Р»РёС†С‹ dbo.Employee РѕРіСЂР°РЅРёС‡РµРЅРёРµ DEFAULT РґР»СЏ РїРѕР»СЏ VacationHours,
+	Р·Р°РґР°Р№С‚Рµ Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ 144;
 */
 alter table dbo.Employee
 	add constraint DEFAULT_Employee_VacationHours
@@ -52,10 +52,10 @@ alter table dbo.Employee
 go
 
 /*
-	e) заполните новую таблицу данными из HumanResources.Employee
-	о сотрудниках на позиции ‘Buyer’.
-	Не указывайте для выборки поле VacationHours,
-	чтобы оно заполнилось значениями по умолчанию;
+	e) Р·Р°РїРѕР»РЅРёС‚Рµ РЅРѕРІСѓСЋ С‚Р°Р±Р»РёС†Сѓ РґР°РЅРЅС‹РјРё РёР· HumanResources.Employee
+	Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С… РЅР° РїРѕР·РёС†РёРё вЂBuyerвЂ™.
+	РќРµ СѓРєР°Р·С‹РІР°Р№С‚Рµ РґР»СЏ РІС‹Р±РѕСЂРєРё РїРѕР»Рµ VacationHours,
+	С‡С‚РѕР±С‹ РѕРЅРѕ Р·Р°РїРѕР»РЅРёР»РѕСЃСЊ Р·РЅР°С‡РµРЅРёСЏРјРё РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ;
 */
 insert into dbo.Employee (
 	BusinessEntityID,
@@ -87,8 +87,8 @@ select * from dbo.Employee;
 go
 
 /*
-	f) измените тип поля ModifiedDate на DATE
-	и разрешите добавление null значений для него.
+	f) РёР·РјРµРЅРёС‚Рµ С‚РёРї РїРѕР»СЏ ModifiedDate РЅР° DATE
+	Рё СЂР°Р·СЂРµС€РёС‚Рµ РґРѕР±Р°РІР»РµРЅРёРµ null Р·РЅР°С‡РµРЅРёР№ РґР»СЏ РЅРµРіРѕ.
 */
 alter table dbo.Employee
 	drop constraint DF__Employee__Modifi__269AB60B;
