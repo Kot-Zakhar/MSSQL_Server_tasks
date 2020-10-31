@@ -91,7 +91,7 @@ go
 	и разрешите добавление null значений для него.
 */
 alter table dbo.Employee
-	drop constraint DF__Employee__Modifi__269AB60B;
+	drop constraint DF__Employee__Modifi__39AD8A7F;
 go
 
 alter table dbo.Employee 
